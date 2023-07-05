@@ -1,0 +1,21 @@
+﻿@model MVC_test.Models.CommandModel
+
+@{
+    ViewData["Title"] = "Execute Command";
+}
+
+<h1>Выполнение команд</h1>
+
+<form asp-action="ExecuteCommand" method="post">
+    <div class="form-group">
+        <label for="commandInput">Введите команду:</label>
+        <input type="text" class="form-control" id="commandInput" name="Command" value="@Model.Command">
+    </div>
+    <button type="submit" class="btn btn-primary">Execute</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Output))
+{
+    <h2>Выполнение:</h2>
+    <pre>@Model.Output</pre>
+}
